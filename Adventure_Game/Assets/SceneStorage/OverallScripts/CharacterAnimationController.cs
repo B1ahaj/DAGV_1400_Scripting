@@ -30,8 +30,7 @@ public class CharacterAnimationController : MonoBehaviour
         {
             animator.SetTrigger("Idle");
         }
-        
-        //Activates double_jump animation
+
         
         if (Input.GetButtonDown("Jump"))
         {
