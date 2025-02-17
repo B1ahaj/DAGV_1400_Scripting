@@ -22,6 +22,7 @@ public class SimpleCharacterController : MonoBehaviour
         MoveCharacter();
         ApplyGravity();
         KeepCharacterOnXAxis();
+        JumpMovement();
     }
 
     private void MoveCharacter()
@@ -30,9 +31,12 @@ public class SimpleCharacterController : MonoBehaviour
         var moveInput = Input.GetAxis("Horizontal");
         var move = new Vector3(moveInput, 0f, 0f) * (moveSpeed * Time.deltaTime);
         controller.Move(move);
+    }
 
+    private void JumpMovement()
+    {
         // Jumping
-        if (Input.GetButtonDown("Jump"))
+        if (Input.GetButtonDown("Jump")) //&& controller.isGrounded) *this completely screws up jumping
         {
             velocity.y = Mathf.Sqrt(jumpForce * -2f * gravity);
         }
