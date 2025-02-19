@@ -9,6 +9,7 @@ public class SimpleTriggerEventBehaviour : MonoBehaviour
     {
         //trigger the event and test with a debug msg
         triggerEvent.Invoke();
+        
         Debug.Log("player interacted with the object");
     }
 }
