@@ -26,7 +26,7 @@ public class CharacterAnimationController : MonoBehaviour
         //Activates jump animation
         if (Input.GetButtonDown("Jump"))
         {
-            animator.SetTrigger("Jump");
+            animator.Play("Jump");
         }
         
         //Activates double jump animation
