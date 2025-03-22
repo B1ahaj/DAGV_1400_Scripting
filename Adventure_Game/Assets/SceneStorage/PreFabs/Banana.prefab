@@ -168,6 +168,18 @@ MonoBehaviour:
           m_StringArgument: Collect
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 6326384331311491367, guid: 63d06257e37e029448cc66c13f48202d, type: 3}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: Collect
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 11400000, guid: 1fbe439cfe08339488261213e4a47f2e, type: 2}
         m_TargetAssemblyTypeName: SimpleRemover, Assembly-CSharp
         m_MethodName: Destroyer
