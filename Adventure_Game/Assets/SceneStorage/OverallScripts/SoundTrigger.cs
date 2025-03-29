@@ -6,7 +6,7 @@ using UnityEngine;
 public class SoundTrigger : MonoBehaviour
 {
     private AudioSource audioSource;
-
+    
     private void Start()
     {
         audioSource = GetComponent<AudioSource>();
@@ -14,6 +14,16 @@ public class SoundTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        audioSource.Play(); //Plays the sound
+        audioSource.Play();
     }
+    public void OnClick()
+    {
+        audioSource.Pause();
+    }
+
+    public void OnClick2()
+    {
+        audioSource.UnPause();
+    }
+
 }
