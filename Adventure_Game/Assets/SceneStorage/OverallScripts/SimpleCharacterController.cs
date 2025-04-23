@@ -6,6 +6,12 @@ public class SimpleCharacterController : MonoBehaviour
     public float moveSpeed = 6f;
     public float jumpForce = 2f;
     public float gravity = -20f;
+    public int maxJumps = 2;
+    private int currentJumps;
+
+    public SimpleFloatData StaminaData;
+    public float maxStamina = 1f;
+    public float staminaRegenRate = 0.2f;
 
     private CharacterController controller;
     private Vector3 velocity;
@@ -15,6 +21,7 @@ public class SimpleCharacterController : MonoBehaviour
     {
         controller = GetComponent<CharacterController>();
         thisTransform = transform;
+        currentJumps = maxJumps; 
     }
 
     private void Update()
@@ -23,8 +30,14 @@ public class SimpleCharacterController : MonoBehaviour
         ApplyGravity();
         KeepCharacterOnXAxis();
         JumpMovement();
+        RegenerateStamina();
     }
-
+    
+    public void ResetVelocity()
+    {
+        velocity = Vector3.zero;
+    }
+    
     private void MoveCharacter()
     {
         // Horizontal movement
@@ -36,12 +49,22 @@ public class SimpleCharacterController : MonoBehaviour
     private void JumpMovement()
     {
         // Jumping
-        if (Input.GetButtonDown("Jump")) //&& controller.isGrounded) *this completely screws up jumping
+        if (Input.GetButtonDown("Jump")&& currentJumps > 0) //&& controller.isGrounded) *this completely screws up jumping
         {
             velocity.y = Mathf.Sqrt(jumpForce * -2f * gravity);
+            currentJumps--;
         }
     }
-
+    
+    private void RegenerateStamina()
+    {
+        if (controller.isGrounded && StaminaData.value < maxStamina)
+        {
+            StaminaData.value += staminaRegenRate * Time.deltaTime;
+            StaminaData.value = Mathf.Min(StaminaData.value, maxStamina); // Clamp to max
+        }
+    }
+    
     private void ApplyGravity()
     {
         // Apply gravity when not grounded
@@ -51,7 +74,11 @@ public class SimpleCharacterController : MonoBehaviour
         }
         else
         {
-            velocity.y = 0f; // Reset velocity when grounded
+            if (velocity.y < 0f) velocity.y = 0f;
+            // Reset velocity when grounded
+            
+            // Reset jumps when grounded
+            currentJumps = maxJumps;
         }
 
         // Apply the velocity to the controller
