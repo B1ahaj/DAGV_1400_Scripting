@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 6597420910257035186}
   - component: {fileID: 837478525781344677}
   - component: {fileID: 1940255533401464712}
+  - component: {fileID: 7872806183524041558}
+  - component: {fileID: 919539447515609053}
   m_Layer: 0
   m_Name: Rock_Enemie
   m_TagString: Untagged
@@ -161,3 +163,51 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1cfca45a96619d54dbd8f2c8efe39ce1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7872806183524041558
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 879724908077714748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2287fa8c5b2805f4bac7a3b060d30f72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 1ced43a3103cb5440a0683e39201741e, type: 2}
+        m_TargetAssemblyTypeName: SimpleFloatData, Assembly-CSharp
+        m_MethodName: UpdateValue
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: -0.2
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!65 &919539447515609053
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 879724908077714748}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.38, y: 0.34, z: 0.2}
+  m_Center: {x: 0, y: 0, z: 0}
